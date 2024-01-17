@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .order {
+            position: relative;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .order:hover {
+            background-color: #f9f9f9;
+        }
+
+        .order h3 {
+            margin-top: 0;
+        }
+
+        .order-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .status {
+            padding: 4px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .status-pending {
+            color: #f39c12;
+            background-color: #fce8b2;
+        }
+
+        .status-in-progress {
+            color: #3498db;
+            background-color: #d6eaf8;
+        }
+
+        .status-completed {
+            color: #2ecc71;
+            background-color: #d4edda;
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            color: #e74c3c;
+            font-weight: bold;
+            display: none;
+        }
+
+        .order:hover .delete-btn {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Order Management</h1>
+    </header>
+    <main>
+        <div class="order" id="order1">
+            <h3>Order #12345</h3>
+            <p>Items: Pizza, Salad, Coke</p>
+            <div class="order-meta">
+                <span class="status status-pending">Pending</span>
+                <span>Total: $25.00</span>
+            </div>
+            <span class="delete-btn" onclick="deleteOrder('order1')">Delete</span>
+        </div>
+
+        <div class="order" id="order2">
+            <h3>Order #12346</h3>
+            <p>Items: Burger, Fries, Shake</p>
+            <div class="order-meta">
+                <span class="status status-in-progress">In Progress</span>
+                <span>Total: $18.50</span>
+            </div>
+            <span class="delete-btn" onclick="deleteOrder('order2')">Delete</span>
+        </div>
+
+        <div class="order" id="order3">
+            <h3>Order #12347</h3>
+            <p>Items: Sushi, Miso Soup, Green Tea</p>
+            <div class="order-meta">
+                <span class="status status-completed">Completed</span>
+                <span>Total: $32.75</span>
+            </div>
+            <span class="delete-btn" onclick="deleteOrder('order3')">Delete</span>
+        </div>
+    </main>
+
+    <script>
+        function deleteOrder(orderId) {
+            var orderElement = document.getElementById(orderId);
+            orderElement.parentNode.removeChild(orderElement);
+        }
+    </script>
+</body>
+</html>
